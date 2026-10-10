@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}Dashboard | CareerTrack{% endblock %}{% block heading %}Dashboard{% endblock %}{% block content %}
+<section class="welcome-panel"><div><span class="eyebrow light">KEEP YOUR SEARCH MOVING</span><h2>Good to see you, {{ current_user.name.split(' ')[0] }}.</h2><p>One clear view of every application, assessment, interview, and next step.</p></div><a class="btn btn-light" href="{{ url_for('main.applications_page') }}">＋ Add application</a></section>
+<section class="stats-grid" id="dashboard-stats">
+  <article class="stat-card"><span class="stat-icon blue">▤</span><span class="stat-label">Total applications</span><strong id="stat-total">—</strong><small>All tracked roles</small></article>
+  <article class="stat-card"><span class="stat-icon purple">◷</span><span class="stat-label">Active applications</span><strong id="stat-active">—</strong><small>In progress</small></article>
+  <article class="stat-card"><span class="stat-icon orange">⌁</span><span class="stat-label">Upcoming OAs</span><strong id="stat-oa">—</strong><small>Scheduled assessments</small></article>
+  <article class="stat-card"><span class="stat-icon green">▣</span><span class="stat-label">Upcoming interviews</span><strong id="stat-interviews">—</strong><small>Scheduled interviews</small></article>
+  <article class="stat-card"><span class="stat-icon green">★</span><span class="stat-label">Offers</span><strong id="stat-offers">—</strong><small>Positive outcomes</small></article>
+  <article class="stat-card"><span class="stat-icon red">↘</span><span class="stat-label">Rejections</span><strong id="stat-rejections">—</strong><small>Keep going</small></article>
+</section>
+<section class="dashboard-columns"><article class="panel"><div class="panel-heading"><div><h3>Recent applications</h3><p>Your latest tracked opportunities</p></div><a class="text-link" href="{{ url_for('main.applications_page') }}">View all →</a></div><div id="recent-applications" class="table-wrap"><p class="muted">Loading applications…</p></div></article>
+<article class="panel"><div class="panel-heading"><div><h3>Preparation tasks</h3><p>Stay on top of your next steps</p></div><a class="text-link" href="{{ url_for('main.tasks_page') }}">View tasks →</a></div><div id="dashboard-tasks" class="task-preview"><p class="muted">Loading tasks…</p></div><div class="dashboard-task-form"><form id="quick-task-form" class="inline-form"><input name="task_title" placeholder="Add a quick task…" required><button class="btn btn-primary" type="submit">Add</button></form></div></article></section>
+{% endblock %}

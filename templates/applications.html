@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}Applications | CareerTrack{% endblock %}{% block heading %}Applications{% endblock %}{% block content %}
+<div class="page-intro"><div><h2>Manage your opportunities</h2><p>Track companies, roles, application stages, and outcomes in one place.</p></div></div>
+<section class="panel"><div class="panel-heading"><div><h3 id="application-form-heading">Add an application</h3><p>Company details are saved with your application.</p></div></div>
+<form id="application-form" class="form-grid">
+<input type="hidden" name="application_id">
+<label>Company name *<input name="company_name" required placeholder="e.g. HPE"></label><label>Job role *<input name="job_role" required placeholder="e.g. Software Engineer"></label>
+<label>Job type<select name="job_type"><option value="">Choose type</option><option>Full-time</option><option>Internship</option><option>Contract</option><option>Part-time</option></select></label>
+<label>Status<select name="status"><option>Interested</option><option>Applied</option><option>OA Scheduled</option><option>OA Completed</option><option>Shortlisted</option><option>Technical Interview</option><option>HR Interview</option><option>Offer</option><option>Rejected</option><option>Withdrawn</option></select></label>
+<label>Application date<input name="application_date" type="date"></label><label>Location<input name="location" placeholder="e.g. Bengaluru / Remote"></label>
+<label>Job link<input name="job_link" type="url" placeholder="https://…"></label><label>Salary / CTC<input name="salary" placeholder="e.g. 8 LPA"></label>
+<label class="full-span">Notes<textarea name="notes" rows="2" placeholder="Referral, recruiter, next step…"></textarea></label>
+<div class="form-actions full-span"><button class="btn btn-primary" type="submit" id="application-submit">Save application</button><button class="btn btn-secondary hidden" type="button" id="application-cancel">Cancel edit</button></div></form></section>
+<section class="panel"><div class="panel-heading"><div><h3>Your applications</h3><p id="application-count">Loading…</p></div><div class="toolbar"><input id="application-search" placeholder="Search company or role…"><select id="application-filter"><option value="">All statuses</option><option>Interested</option><option>Applied</option><option>OA Scheduled</option><option>OA Completed</option><option>Shortlisted</option><option>Technical Interview</option><option>HR Interview</option><option>Offer</option><option>Rejected</option><option>Withdrawn</option></select></div></div><div id="applications-table" class="table-wrap"></div></section>
+{% endblock %}
